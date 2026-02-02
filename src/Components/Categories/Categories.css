@@ -1,0 +1,78 @@
+.Category-container{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    /* flex-wrap: wrap; */
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding: 20px;
+    margin: 10px;
+}
+.cat-card{
+    height: 250px;
+    width: 200px;
+    border: 1px solid black;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: black;
+    background: linear-gradient(135deg, rgb(192, 112, 250) 0%, rgb(229, 251, 85) 100%);
+}
+
+.Main-items{
+    margin-top: 20px;
+}
+
+.heading{
+    display: flex;
+    padding: 10px;
+    box-shadow: 3px 3px 6px black;
+}
+.heading button{
+    font-size: 25px;
+    width:80px;
+    border:none;
+    background-color: white;
+    transition: 0.6s ease;
+}
+
+.heading button:hover{
+    transform: scale(1.05);
+    border-bottom: 0.5px solid black;
+}
+
+.title{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-card{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    margin: 10px;
+    gap: 10px;
+}
+.mini-card{
+    height: 300px;
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 10px;
+}
+#add-btn{
+    height: 25px;
+    width: 80px;
+    border-radius: 5px;
+}

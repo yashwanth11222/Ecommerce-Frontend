@@ -1,0 +1,54 @@
+.brand-products {
+  padding: 20px;
+}
+
+.brand-products h2 {
+  display: flex;
+  margin-bottom: 20px;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: rgb(249, 128, 128);
+  box-shadow: 1px 1px 5px 2px rgb(106, 106, 106);
+}
+
+.back-btn{
+    width: 60px;
+    font-size: 20px;
+    border: none;
+    border-radius: 10px;
+    background-color: rgb(249,128,128);
+    transition: 0.2s ease-out;
+}
+.back-btn:hover{
+    transform: scale(1.08);
+}
+
+.Brand-title{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 16px;
+}
+
+.product-card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 16px;
+  background: #fafafa;
+  transition: transform 0.2s ease;
+}
+
+.product-card:hover {
+  transform: scale(1.03);
+  background: #fff;
+}
+
+.product-card h3 {
+  margin: 0 0 10px;
+  font-size: 18px;
+}
