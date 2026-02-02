@@ -14,7 +14,7 @@ const Orders = () => {
       }
       try {
         const allOrders = await axios.get(
-          `${process.env.VITE_API_URL}/orders/orderspage`,
+          `${import.meta.env.VITE_API_URL}/orders/orderspage`,
           {
             headers: { Authorization: `Bearer ${token}` },
           },
@@ -31,7 +31,7 @@ const Orders = () => {
     const token = localStorage.getItem("AuthToken");
     try {
       await axios.put(
-        `${process.env.VITE_API_URL}/orders/cancel/${orderId}`,
+        `${import.meta.env.VITE_API_URL}/orders/cancel/${orderId}`,
         {},
         {
           headers: { Authorization: `Bearer ${token}` },

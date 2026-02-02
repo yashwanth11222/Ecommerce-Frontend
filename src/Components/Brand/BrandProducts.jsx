@@ -18,7 +18,7 @@ const BrandProducts = () => {
 const handleClick = async(prod)=>{
     try {
         const token = localStorage.getItem('AuthToken');
-        const addProduct = await axios.post(`${process.env.VITE_API_URL}/cart/additem`,
+        const addProduct = await axios.post(`${import.meta.env.VITE_API_URL}/cart/additem`,
             {
             productId: prod._id,
             quantity:1

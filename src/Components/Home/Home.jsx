@@ -9,7 +9,7 @@ const Home = () => {
   
   useEffect(() => {
     const fetchBrands = async()=>{
-      const res = await axios.get(`${process.env.VITE_API_URL}/category/brand`);
+      const res = await axios.get(`${import.meta.env.VITE_API_URL}/category/brand`);
       console.log(res.data.data);
       setBrands(res.data.data);
     }
