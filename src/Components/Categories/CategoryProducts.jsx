@@ -14,7 +14,7 @@ const CategoryProducts = () => {
       try {
         const token = localStorage.getItem("AuthToken");
         const addProduct = await axios.post(
-          `${process.env.REACT_APP_API_URL}/cart/additem`,
+          `${process.env.VITE_API_URL}/cart/additem`,
           {
             productId: item._id,
             quantity: 1,
@@ -37,7 +37,7 @@ const CategoryProducts = () => {
     const fetchProducts = async () => {
       try {
         const res = await axios.get(
-          `${process.env.REACT_APP_API_URL}/category/items/${category}`,
+          `${process.env.VITE_API_URL}/category/items/${category}`,
         );
 
         setProducts(res.data.data);

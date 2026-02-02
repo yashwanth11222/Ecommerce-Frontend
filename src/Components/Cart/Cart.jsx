@@ -15,7 +15,7 @@ const Cart = () => {
           toast.error("You are not authorized");
           return;
         }
-        const res = await axios.get(`${process.env.REACT_APP_API_URL}/cart/getitems`, {
+        const res = await axios.get(`${process.env.VITE_API_URL}/cart/getitems`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -44,7 +44,7 @@ const Cart = () => {
           toast.error("You are not authorized");
           return;
         }
-    const order = await axios.get(`${process.env.REACT_APP_API_URL}/orders/order`,{
+    const order = await axios.get(`${process.env.VITE_API_URL}/orders/order`,{
       headers:{
         Authorization: `Bearer ${token}`
       }
@@ -57,7 +57,7 @@ const Cart = () => {
     console.log(itemId);
     try {
       const token = localStorage.getItem("AuthToken");
-      await axios.delete(`${process.env.REACT_APP_API_URL}/cart/item/${itemId}`, {
+      await axios.delete(`${process.env.VITE_API_URL}/cart/item/${itemId}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       // Update state after successful removal
@@ -72,7 +72,7 @@ const Cart = () => {
     try {
       const token = localStorage.getItem("AuthToken");
       await axios.put(
-        `${process.env.REACT_APP_API_URL}/cart/item/${itemId}`,
+        `${process.env.VITE_API_URL}/cart/item/${itemId}`,
         { quantity: newQty },
         { headers: { Authorization: `Bearer ${token}` } },
       );
