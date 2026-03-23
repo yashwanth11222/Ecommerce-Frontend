@@ -42,20 +42,26 @@ const handleBack=()=>{
 }
     
   return (
-    <div className="brand-products">
-        <h2>
-            <button className="back-btn" onClick={handleBack}>🔙</button>
-            <div className="Brand-title">{location.state?.data?._id}</div>
-        </h2>
-        <div className="product-grid">
+    <div className="products-container">
+        <header className="products-header">
+            <button className="back-btn glass" onClick={handleBack}>← Back</button>
+            <h2 className="products-title">{location.state?.data?._id} Collections</h2>
+        </header>
+        
+        <div className="products-grid">
             {products && products.map((prod)=>(
-                <div className="product-card" key={prod._id}>
-                    <h3>{prod.name}</h3>
-                    <p>{prod.description}</p>
-                    <p><strong>Price:</strong>{prod.price}</p>
-                    <p><strong>Category:</strong>{prod.category}</p>
-                    <br />
-                    <button id="add-btn" onClick={()=>handleClick(prod)}>Add to Cart</button>
+                <div className="product-card glass" key={prod._id}>
+                    <div className="product-badge">{prod.category}</div>
+                    <div className="product-info">
+                        <h3 className="product-name">{prod.name}</h3>
+                        <p className="product-desc">{prod.description}</p>
+                        <div className="product-footer">
+                            <span className="product-price">${prod.price}</span>
+                            <button className="add-to-cart-btn" onClick={()=>handleClick(prod)}>
+                                + Add to Cart
+                            </button>
+                        </div>
+                    </div>
                 </div>
             ))}
         </div>

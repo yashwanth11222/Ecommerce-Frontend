@@ -52,24 +52,28 @@ const CategoryProducts = () => {
   }
 
   return (
-    <div className="Main-items">
-      <div className="heading">
-        <button onClick={handleBack}>🔙</button>
-        <div className="title">
-          <h2>{category.toUpperCase()}</h2>
-        </div>
-      </div>
-      <div className="main-card">
+    <div className="products-container">
+      <header className="products-header">
+        <button className="back-btn glass" onClick={handleBack}>← Back</button>
+        <h2 className="products-title">{category.toUpperCase()} Collections</h2>
+      </header>
+      
+      <div className="products-grid">
         {products &&
           products.map((item) => {
             return (
-              <div key={item._id} className="mini-card">
-                <h3>{item.name}</h3>
-                <p>{item.description}</p>
-                <p><strong> Price:</strong>{item.price}</p>
-                <button id="add-btn" onClick={() => handleClick(item)}>
-                  Add to cart
-                </button>
+              <div key={item._id} className="product-card glass">
+                <div className="product-badge">{category}</div>
+                <div className="product-info">
+                  <h3 className="product-name">{item.name}</h3>
+                  <p className="product-desc">{item.description}</p>
+                  <div className="product-footer">
+                    <span className="product-price">${item.price}</span>
+                    <button className="add-to-cart-btn" onClick={() => handleClick(item)}>
+                      + Add to Cart
+                    </button>
+                  </div>
+                </div>
               </div>
             );
           })}

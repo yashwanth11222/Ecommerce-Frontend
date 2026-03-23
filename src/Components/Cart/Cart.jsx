@@ -88,52 +88,91 @@ const Cart = () => {
     }
   }
   return (
-    <div className="Main-Cart">
-      <div className="cart-items">
-        {cart &&
-          cart.map((item) => (
-            <div key={item._id} className="cart-item">
-              <div className="item-wrapper">
-                <div className="item-data">
-                  <h4>Product: {item.productId.name}</h4>
-                  <p>Description: {item.productId.description}</p>
-                  <p>Brand: {item.productId.brand}</p>
+    <div className="cart-container">
+      <h1 className="section-title">Your Shopping Cart</h1>
+      
+      <div className="cart-content">
+        <div className="cart-items-list">
+          {cart && cart.length > 0 ? (
+            cart.map((item) => (
+              <div key={item._id} className="cart-item-card glass">
+                <div className="item-details">
+                  <div className="item-header">
+                    <h3 className="item-name">{item.productId.name}</h3>
+                    <span className="item-brand">{item.productId.brand}</span>
+                  </div>
+                  <p className="item-desc">{item.productId.description}</p>
                 </div>
-                <div className="item-price">
-                  <p>Price:{item.productId.price}</p>
-                  <label>Qty: <input type="number" min="1" value={item.quantity} onChange={(e)=> handleQuantityChange(item._id, e.target.value)} className="qty-input"/></label>
-                  <p>
-                    Total Cost: {priceCalc(item.productId.price, item.quantity)}
-                  </p>
-                </div>
-                <div className="item-action">
-                  <button className="remove-btn" onClick={()=> handleRemoveItem(item._id)}>Remove</button>
+                
+                <div className="item-controls">
+                  <div className="price-tag">
+                    <span className="unit-price">${item.productId.price}</span>
+                  </div>
+                  
+                  <div className="quantity-control glass">
+                    <button 
+                      className="qty-btn" 
+                      onClick={() => handleQuantityChange(item._id, Math.max(1, item.quantity - 1))}
+                    >–</button>
+                    <input 
+                      type="number" 
+                      min="1" 
+                      value={item.quantity} 
+                      onChange={(e)=> handleQuantityChange(item._id, e.target.value)} 
+                      className="qty-input"
+                    />
+                    <button 
+                      className="qty-btn" 
+                      onClick={() => handleQuantityChange(item._id, Number(item.quantity) + 1)}
+                    >+</button>
+                  </div>
+                  
+                  <div className="item-total">
+                    <span className="total-label">Total:</span>
+                    <span className="total-amount">${priceCalc(item.productId.price, item.quantity)}</span>
+                  </div>
+                  
+                  <button className="remove-item-btn" onClick={()=> handleRemoveItem(item._id)}>
+                    🗑️
+                  </button>
                 </div>
               </div>
+            ))
+          ) : (
+            <div className="empty-cart glass">
+              <p>Your cart is empty.</p>
+              <button className="auth-btn" onClick={() => navigate('/home')}>Start Shopping</button>
             </div>
-          ))}
-        <div className="summary-cart">
-          <h3>🛒 Cart Summary</h3>
-          <ul className="summary-list">
-            {cart.map((item) => (
-              <li key={item._id}>
-                {item.productId.name} × {item.quantity} = ₹
-                {priceCalc(item.productId.price, item.quantity)}
-              </li>
-            ))}
-          </ul>
-          <div className="summary-totals">
-            <p>
-              <strong>Total Items:</strong> {totalItems}
-            </p>
-            <p>
-              <strong>Total Cost:</strong> ₹{totalCost}
-            </p>
-          </div>
-          <button className="place-order-btn" onClick={handleOrderbtn}>
-            Confirm Order
-          </button>
+          )}
         </div>
+
+        {cart && cart.length > 0 && (
+          <aside className="cart-summary glass">
+            <h2 className="summary-title">Order Summary</h2>
+            <div className="summary-details">
+              <div className="summary-row">
+                <span>Total Items</span>
+                <span>{totalItems}</span>
+              </div>
+              <div className="summary-row">
+                <span>Subtotal</span>
+                <span>${totalCost}</span>
+              </div>
+              <div className="summary-row">
+                <span>Shipping</span>
+                <span className="free-shipping">FREE</span>
+              </div>
+              <div className="summary-divider"></div>
+              <div className="summary-row total">
+                <span>Total Amount</span>
+                <span>${totalCost}</span>
+              </div>
+            </div>
+            <button className="order-btn" onClick={handleOrderbtn}>
+              Confirm Order
+            </button>
+          </aside>
+        )}
       </div>
     </div>
   );

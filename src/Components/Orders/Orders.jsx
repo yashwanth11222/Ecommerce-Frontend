@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import toast from "react-hot-toast";
+import "./Orders.css";
 
 const Orders = () => {
   const [orders, setOrders] = useState([]);

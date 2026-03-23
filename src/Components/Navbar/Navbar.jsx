@@ -14,24 +14,25 @@ const Navbar = () => {
         navigate('/login', {replace:true} )
     }
   return (
-    <div className='nav-head'>
-        <div className="left" id='nav-items'>
-            <Link to="/Home" className='nav-links'>Home</Link>
+    <nav className='nav-head glass'>
+        <div className="nav-left">
+            <Link to="/home" className='nav-logo'>MyStore</Link>
         </div>
-        <div className="center" id='nav-items'>
-            <Link to="/Categories" className='nav-links'>Categories</Link>
-            <Link to="/Orders" className='nav-links'>Orders</Link>
-            <Link to="/Cart" className='nav-links'>Cart <span>{}</span></Link>
+        <div className="nav-center">
+            <Link to="/home" className='nav-links'>Home</Link>
+            <Link to="/categories" className='nav-links'>Categories</Link>
+            <Link to="/orders" className='nav-links'>Orders</Link>
+            <Link to="/cart" className='nav-links'>Cart</Link>
         </div>
-        <div className="end" id='nav-items' onClick={toggleMenu}>
-            👤
+        <div className="nav-end" onClick={toggleMenu}>
+            <div className="user-icon">👤</div>
             {showMenu && (
-                <div className="dropdown-menu">
-                    <button onClick={logout}>Logout</button>
+                <div className="dropdown-menu glass">
+                    <button onClick={logout} className="logout-btn">Logout</button>
                 </div>
             )}
         </div>
-    </div>
+    </nav>
   )
 }
 

@@ -43,17 +43,22 @@ const Register = () => {
         navigate('/login', { replace: true });
     }
   return (
-    <div className='Main-container'>
-       <h2>👤 Register Here</h2>
-       <div className="signup-form">
-            <form onSubmit={handleSubmit}>
-                <input id='input' type="text" name='name' placeholder='Enter Name' value={name} onChange={handleChange} />
-                <input id='input' type="email" name='email' placeholder='Enter Email' value={email} onChange={handleChange} />
-                <input id='input' type="password" name='password' placeholder='Enter Password' value={password} onChange={handleChange} />
-                <input id='btn' type="submit" value="Sign Up" />
+    <div className='auth-container'>
+       <div className="auth-card glass">
+            <h2 className="auth-title">👤 Join MyStore</h2>
+            <form onSubmit={handleSubmit} className="auth-form">
+                <div className="input-group">
+                    <input className='auth-input' type="text" name='name' placeholder='Full Name' value={name} onChange={handleChange} required />
+                </div>
+                <div className="input-group">
+                    <input className='auth-input' type="email" name='email' placeholder='Email Address' value={email} onChange={handleChange} required />
+                </div>
+                <div className="input-group">
+                    <input className='auth-input' type="password" name='password' placeholder='Create Password' value={password} onChange={handleChange} required />
+                </div>
+                <button className='auth-btn' type="submit">Sign Up</button>
             </form>
-            <p>Already an user ? <button onClick={handleLogin} style={{"border-radius":"5px", "border":"none", "width":"60px", "background-color":"black","color":"white"}}>Login</button></p>
-            
+            <p className="auth-footer">Already have an account? <span onClick={handleLogin} className="auth-link">Login</span></p>
        </div>
     </div>
   )

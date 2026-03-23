@@ -52,29 +52,35 @@ const Login = () => {
   }
 
   return (
-    <div className='Main-container'>
-      <h2>👤 Login Here</h2>
-      <div className="signup-form">
-        <form onSubmit={handleSubmit}>
-          <input
-            id='input'
-            type="email"
-            name='email'
-            placeholder='Enter Email'
-            value={email}
-            onChange={handleChange}
-          />
-          <input
-            id='input'
-            type="password"
-            name='password'
-            placeholder='Enter Password'
-            value={password}
-            onChange={handleChange}
-          />
-          <input id='btn' type="submit" value="LogIn" />
+    <div className='auth-container'>
+      <div className="auth-card glass">
+        <h2 className="auth-title">👤 Welcome Back</h2>
+        <form onSubmit={handleSubmit} className="auth-form">
+          <div className="input-group">
+            <input
+              className='auth-input'
+              type="email"
+              name='email'
+              placeholder='Email Address'
+              value={email}
+              onChange={handleChange}
+              required
+            />
+          </div>
+          <div className="input-group">
+            <input
+              className='auth-input'
+              type="password"
+              name='password'
+              placeholder='Password'
+              value={password}
+              onChange={handleChange}
+              required
+            />
+          </div>
+          <button className='auth-btn' type="submit">Log In</button>
         </form>
-        <p><strong>New User ?</strong> <button onClick={handleRegister}>Register</button></p>
+        <p className="auth-footer">New to MyStore? <span onClick={handleRegister} className="auth-link">Register</span></p>
       </div>
     </div>
   );
